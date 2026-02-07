@@ -1,15 +1,12 @@
+require('dotenv').config({ path: ['.env.local', '.env'] });
+
 const express = require("express");
+const connectDB = require("./src/db/database");
 
 const app = express();
 const PORT = 3000;
 
-app.get("/", (req, res) => {
-  res.send("Hello, world!");
-});
-
-app.get("/geevale", (req, res) => {
-  res.send("Hello, Geevalae!");
-});
+connectDB();
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
